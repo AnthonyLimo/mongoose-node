@@ -53,7 +53,7 @@ router.get("/getOne/:id", async (req, res) => {
 
 // Update ID method
 
-router.patch("/update/:id", (req, res) => {
+router.patch("/update/:id", async (req, res) => {
     //res.send("Update one API");
     try {
         const id = req.params.id;
@@ -76,7 +76,7 @@ router.patch("/update/:id", (req, res) => {
 
 // Delete by ID
 
-router.delete("/delete/:id", (req, res) => {
+router.delete("/delete/:id", async (req, res) => {
     //res.send("Delete by Id");
     try {
         const id = req.params.id;
