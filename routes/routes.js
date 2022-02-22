@@ -1,8 +1,7 @@
 const express = require("express");
+const Model = require("../model/model");
 
 const router = express.Router();
-
-const Model = require("../model/model");
 
 // Post data to DB
 

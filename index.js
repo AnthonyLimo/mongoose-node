@@ -20,9 +20,10 @@ const app = express();
 
 const routes = require("./routes/routes");
 
-app.use("/api", routes);
-
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use("/api", routes);
 
 app.listen(3000, () => {
     console.log("What's popping? We're connected");
