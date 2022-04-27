@@ -29,8 +29,8 @@ app.use(express.urlencoded({ extended: true }));
 const dataToSave = {};
 
 const atCredentials = {
-    apiKey: "eb5f6943fdea07c87094220961ae33c6e4e3152f220aecf4d21a0c9801511898",
-    username: "sandbox"
+    apiKey: process.env.AT_SANDBOX_APIKEY,
+    username: process.env.AT_SANDBOX_USERNAME
 };
 
 const AfricasTalking = require("africastalking")(atCredentials);
@@ -49,7 +49,7 @@ menu.startState({
     // next object links to next state based on user input
     next: {
         '1': 'register',
-        '2': 'end'
+        '2': 'quit'
     }
 });
 
@@ -97,6 +97,12 @@ menu.state('end', {
         await sms.send(options);
 
         menu.end('Awesome! We have your tickets reserved. Sending a confirmation text shortly.');
+    }
+});
+
+menu.state('quit', {
+    run: () => {
+        menu.end("Goodbye :)");
     }
 });
 
